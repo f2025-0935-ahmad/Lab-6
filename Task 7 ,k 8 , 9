@@ -1,0 +1,120 @@
+Task 7 :
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    string password;
+    while(true){
+        cout << "Enter the password :";
+        cin >> password;
+        if (password == "Phyton123"){
+            cout << "Access granted" << endl;
+            break;
+        }else{
+              cout << "Wrong Password Try Again" << endl;
+              
+            }
+        
+    
+    }
+    return 0;
+}
+
+Task 8 :
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number;
+    bool isPrime = true;
+
+    cout << "Enter a number: ";
+    cin >> number;
+
+    if (number <= 1)
+        isPrime = false;
+    else {
+        for (int i = 2; i <= number / 2; i++) {
+            if (number % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+
+    if (isPrime)
+        cout << "The number is prime.";
+    else
+        cout << "The number is not prime.";
+
+    return 0;
+}
+
+
+Task 9 :
+
+
+Step 1) You are developing a movie theater booking system where customers can see the seat arrangement before selecting their seats. The theater has R rows and C columns, where each seat is represented by its row and seat number in the format (row-seat). Write a C++ program using nested for loops to generate a seat layout, where each seat is displayed as (row-seat).
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int R, C;
+
+    cout << "Enter number of rows: ";
+    cin >> R;
+
+    cout << "Enter number of seats in each row: ";
+    cin >> C;
+
+    cout << "\nSeat layout:\n";
+
+    for (int i = 1; i <= R; i++) {       
+        for (int j = 1; j <= C; j++) {   
+            cout << "(" << i << "-" << j << ") ";
+        }
+        cout << endl; 
+    }
+
+    return 0;
+}
+
+
+Step 2) Create a booking system, which helps to reserve seats and after every reservation, show a map of reservations and available seats.
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows, cols;
+    cin >> rows >> cols;
+    char seats[10][10];
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            seats[i][j] = 'A';
+
+    while (true) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++)
+                cout << seats[i][j] << " ";
+            cout << endl;
+        }
+
+        int r, c;
+        cin >> r;
+        if (r == 0) break;
+        cin >> c;
+
+        if (seats[r-1][c-1] == 'A') seats[r-1][c-1] = 'B';
+        else cout << "Already booked\n";
+    }
+
+    return 0;
+}
+
